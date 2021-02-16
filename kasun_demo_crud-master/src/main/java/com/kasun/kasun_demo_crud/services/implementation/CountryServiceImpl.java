@@ -6,6 +6,7 @@ import com.kasun.kasun_demo_crud.repositories.CountryRepository;
 import com.kasun.kasun_demo_crud.services.CountryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
 public class CountryServiceImpl implements CountryServices {
     @Autowired
     private CountryRepository countryRepository;
+
+
 
     @Override
     public List<CountryDTO> findAllCountries() {
@@ -43,7 +46,8 @@ public class CountryServiceImpl implements CountryServices {
     }
 
 
-
-
-
+    @Override
+    public void deleteCountry(int id) {
+        countryRepository.deleteById(id);
+    }
 }

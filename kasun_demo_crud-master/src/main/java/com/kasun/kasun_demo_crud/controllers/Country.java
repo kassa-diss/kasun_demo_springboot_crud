@@ -3,6 +3,7 @@ package com.kasun.kasun_demo_crud.controllers;
 import com.kasun.kasun_demo_crud.domain.CountryDTO;
 import com.kasun.kasun_demo_crud.repositories.CountryRepository;
 import com.kasun.kasun_demo_crud.services.CountryServices;
+import com.kasun.kasun_demo_crud.services.implementation.CountryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,10 +31,13 @@ public class Country {
         return countryServices.updateCountry(newCountrydata);
     }
 
+
     @DeleteMapping("/delete/{id}")
-    public void deleteCountry(@PathVariable Long id) {
-        CountryRepository.deleteById(id);
+    public void deleteCountry(@PathVariable int id) {
+        countryServices.deleteCountry(id);
     }
+
+
 
 
 
